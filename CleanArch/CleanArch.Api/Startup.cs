@@ -39,7 +39,7 @@ namespace CleanArch.Api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArch.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "UniversityApi", Version = "v1" });
             });
 
             services.AddMediatR(typeof(Startup));

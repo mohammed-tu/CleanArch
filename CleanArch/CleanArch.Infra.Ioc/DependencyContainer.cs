@@ -22,14 +22,18 @@ namespace CleanArch.Infra.Ioc
         public static void RegisterServices(IServiceCollection services )
         {
             // Domain InMemoryBus MediatR
+
             services.AddScoped<IMedaitorHandler, InMemoryBus>();
-            
+
             // Domain Handler 
+
             services.AddScoped<IRequestHandler<CreateCourseCommand, bool>, CourseCommandHandler>();
-            
+
             // Application Layer
             services.AddScoped<ICourseService,CourseService>();
+
             // Infra.Data Layer 
+
             services.AddScoped<ICourseRepository, CourseRepository>();
 
             services.AddScoped<UniversityDBContext>();

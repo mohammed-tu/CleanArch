@@ -1,6 +1,7 @@
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.Ioc;
 using CleanArch.Mvc1.Data;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,7 @@ namespace CleanArch.Mvc1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("UniversityIdentityDBConnection")));
@@ -40,9 +42,14 @@ namespace CleanArch.Mvc1
             services.AddDbContext<UniversityDBContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
             } );
+            
+            services.AddControllersWithViews();
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
-            services.AddControllersWithViews();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

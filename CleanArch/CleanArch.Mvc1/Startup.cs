@@ -1,5 +1,6 @@
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.Ioc;
+using CleanArch.Mvc.Configurations;
 using CleanArch.Mvc1.Data;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -46,6 +47,8 @@ namespace CleanArch.Mvc1
             services.AddControllersWithViews();
 
             services.AddMediatR(typeof(Startup));
+
+            services.RegisterAutoMapper();
 
             RegisterServices(services);
 

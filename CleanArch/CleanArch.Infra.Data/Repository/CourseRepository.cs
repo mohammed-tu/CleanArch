@@ -26,7 +26,7 @@ namespace CleanArch.Infra.Data.Repository
 
         }
 
-        public IEnumerable<Course> GetCourses()
+        public IQueryable<Course> GetCourses()
         {
 
             return _ctx.Courses;
